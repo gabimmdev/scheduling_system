@@ -1,34 +1,34 @@
 package com.gabim.sched_api.controller;
 
-import com.gabim.sched_api.model.Sched;
-import com.gabim.sched_api.service.SchedService;
+import com.gabim.sched_api.model.Agendamento;
+import com.gabim.sched_api.service.AgendamentoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/sched")
-@CrossOrigin(origins = "*")
-public class SchedController {
-    private final SchedService service;
+@RequestMapping("/agendamentos")
+public class AgendamentoController {
+    private final AgendamentoService service;
 
-    public SchedController(SchedService service) {
+    public AgendamentoController(AgendamentoService service) {
         this.service = service;
     }
 
     @PostMapping
-    public Sched criar(@RequestBody Sched agendamento) {
+    public Agendamento criar(@RequestBody Agendamento agendamento) {
         return service.criarAgendamento(agendamento);
 
     }
 
     @GetMapping
-    public List<Sched> listar() {
+    public List<Agendamento> listar() {
         return service.listarTodos();
     }
 
     @PutMapping("/{id}/confirmar")
-    public Sched confirmar(@PathVariable Long id) {
+    public Agendamento confirmar(@PathVariable Long id) {
         return service.confirmarAgendamento(id);
     }
 

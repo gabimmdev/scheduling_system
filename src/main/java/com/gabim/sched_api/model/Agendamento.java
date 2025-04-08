@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Sched {
+public class Agendamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,7 +46,5 @@ public class Sched {
     public void setConfirmado(boolean confirmado) {
         this.confirmado = confirmado;
     }
-
-    // Getters e Setters
     
 }
