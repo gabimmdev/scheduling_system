@@ -1,10 +1,10 @@
-package com.gabim.agendamento_api.model;
+package com.gabim.sched_api.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Agendamento {
+public class Sched {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
