@@ -1,7 +1,7 @@
-package com.gabim.sched_api.service;
+package com.gabim.agendamento_api.service;
 
-import com.gabim.sched_api.model.Agendamento;
-import com.gabim.sched_api.repository.AgendamentoRepository;
+import com.gabim.agendamento_api.model.Agendamento;
+import com.gabim.agendamento_api.repository.AgendamentoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

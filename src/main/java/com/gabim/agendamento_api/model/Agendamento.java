@@ -1,4 +1,4 @@
-package com.gabim.sched_api.model;
+package com.gabim.agendamento_api.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

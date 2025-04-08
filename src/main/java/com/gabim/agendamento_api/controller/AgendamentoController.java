@@ -1,14 +1,14 @@
-package com.gabim.sched_api.controller;
+package com.gabim.agendamento_api.controller;
 
-import com.gabim.sched_api.model.Agendamento;
-import com.gabim.sched_api.service.AgendamentoService;
+import com.gabim.agendamento_api.model.Agendamento;
+import com.gabim.agendamento_api.service.AgendamentoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/agendamentos")
+@RequestMapping("/agendamento")
 public class AgendamentoController {
     private final AgendamentoService service;
 
