@@ -14,6 +14,8 @@ public class Agendamento {
     private LocalDateTime horario;
 
     private boolean confirmado;
+    
+    private boolean concluido;
 
     public Long getId() {
         return id;
@@ -47,4 +49,11 @@ public class Agendamento {
         this.confirmado = confirmado;
     }
     
+    public boolean isConcluido() {
+        return concluido;
+    }
+
+    public void setConcluido(boolean concluido) {
+        this.concluido = concluido;
+    }
 }
