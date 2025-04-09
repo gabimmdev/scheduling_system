@@ -31,6 +31,20 @@ public class AgendamentoController {
     public Agendamento confirmar(@PathVariable Long id) {
         return service.confirmarAgendamento(id);
     }
+     @PutMapping("/{id}/concluir")
+    public ResponseEntity<Agendamento> marcarComoConcluido(@PathVariable Long id) {
+        Optional<Agendamento> optional = agendamentoRepository.findById(id);
+
+        if (optional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Agendamento agendamento = optional.get();
+        agendamento.setConcluido(true);
+        agendamentoRepository.save(agendamento);
+
+        return ResponseEntity.ok(agendamento);
+    }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
