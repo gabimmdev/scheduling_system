@@ -1,28 +1,38 @@
 package com.gabim.agendamento_api.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Entity
 public class Agendamento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O nome do cliente é obrigatório.")
+    @Size(min = 3, max = 50, message = "O nome do cliente deve ter entre 3 e 50 caracteres.")
     private String cliente;
 
+    @NotNull(message = "O horário do agendamento é obrigatório.")
+    @Future(message = "O horário do agendamento deve ser no futuro.")
     private LocalDateTime horario;
 
-    private boolean confirmado;
-    
-    private boolean concluido;
+    private boolean confirmado = false;
+
+    private boolean concluido = false;
+
+    // validação entre concluido e confirmado
+    @AssertTrue(message = "Um agendamento só pode ser concluído se estiver confirmado.")
+    public boolean isConcluidoAposConfirmado() {
+        return !concluido || confirmado;
+    }
+
+    // getters e setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getCliente() {
@@ -48,7 +58,7 @@ public class Agendamento {
     public void setConfirmado(boolean confirmado) {
         this.confirmado = confirmado;
     }
-    
+
     public boolean isConcluido() {
         return concluido;
     }
