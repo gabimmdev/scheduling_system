@@ -42,6 +42,26 @@ public class AgendamentoController {
         return ResponseEntity.ok(agendamentoConfirmado);
     }
 
+    @PutMapping("/{id}/desconfirmar")
+    public ResponseEntity<?> desconfirmar(@PathVariable Long id) {
+        Optional<Agendamento> optional = agendamentoRepository.findById(id);
+
+        if (optional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Agendamento agendamento = optional.get();
+
+        if (agendamento.isConcluido()) {
+            return ResponseEntity.badRequest().body("Não é possível desconfirmar um agendamento já concluído.");
+        }
+
+        agendamento.setConfirmado(false);
+        agendamentoRepository.save(agendamento);
+
+        return ResponseEntity.ok(agendamento);
+    }
+
     @PutMapping("/{id}/concluir")
     public ResponseEntity<Agendamento> marcarComoConcluido(@PathVariable Long id) {
         Optional<Agendamento> optional = agendamentoRepository.findById(id);
@@ -51,6 +71,11 @@ public class AgendamentoController {
         }
 
         Agendamento agendamento = optional.get();
+
+        if (!agendamento.isConfirmado()) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
         agendamento.setConcluido(true);
         agendamentoRepository.save(agendamento);
 
