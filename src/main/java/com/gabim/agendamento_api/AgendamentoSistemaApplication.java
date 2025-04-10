@@ -1,4 +1,4 @@
-package com.gabim.agendamento_api.sistema_agendamento;
+package com.gabim.agendamento_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
