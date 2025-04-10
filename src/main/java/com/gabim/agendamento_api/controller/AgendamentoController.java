@@ -4,17 +4,17 @@ import com.gabim.agendamento_api.model.Agendamento;
 import com.gabim.agendamento_api.service.AgendamentoService;
 import com.gabim.agendamento_api.repository.AgendamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000")
+@SpringBootApplication(scanBasePackages = "com.gabim.agendamento_api")
 @RestController
-@RequestMapping("/agendamentos")
-@Repository
+@RequestMapping("/agendamento")
 public class AgendamentoController {
     private final AgendamentoService service;
     
@@ -31,11 +31,10 @@ public class AgendamentoController {
 
     }
 
-    @GetMapping
-    public List<Agendamento> listar() {
-        return service.listarTodos();
-    }
-
+    @GetMapping("/teste")
+    public String testar() {
+        return "Funcionando!";
+}
     @PutMapping("/{id}/confirmar")
     public Agendamento confirmar(@PathVariable Long id) {
         return service.confirmarAgendamento(id);
