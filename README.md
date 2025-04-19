@@ -17,11 +17,14 @@ Esta é uma API REST desenvolvida com **Java + Spring Boot** para gerenciar agen
 1. Clone o repositório:
 ```bash
 git clone https://github.com/seuusuario/seu-repo.git
-cd backend 
+cd scheduling_system (se ja não estiver nela)
 ```
 3. Abra no IntelliJ, VS Code ou outra IDE com suporte a Spring Boot.
-4. Execute a aplicação (AgendamentoApplication.java)
-5. Acesse o H2 Console (opcional):
+4. Execute a aplicação (AgendamentoApplication.java) ou no terminal execute:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+6. Acesse o H2 Console (opcional):
 <br> http://localhost:8080/h2-console <br>
 JDBC URL: jdbc:h2:mem:agendadb
 
