@@ -23,7 +23,7 @@ public class Agendamento {
 
     private boolean concluido = false;
 
-    // validação entre concluido e confirmado
+    // Validação entre concluído e confirmado
     @AssertTrue(message = "Um agendamento só pode ser concluído se estiver confirmado.")
     public boolean isConcluidoAposConfirmado() {
         return !concluido || confirmado;
