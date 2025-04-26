@@ -16,7 +16,8 @@ public class Agendamento {
     private String cliente;
 
     @NotNull(message = "O horário do agendamento é obrigatório.")
-    @Future(message = "O horário do agendamento deve ser no futuro.")
+    //@Future(message = "O horário do agendamento deve ser no futuro.")
+    @FutureOrPresent(message = "O horário do agendamento deve ser no futuro.")
     private LocalDateTime horario;
 
     private boolean confirmado = false;
